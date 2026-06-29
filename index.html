@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Xeno | AI Control Plane for Distributed Model Serving</title>
+    <meta
+      name="description"
+      content="Xeno turns laptops, workstations, servers, and accelerator hosts into one governed OpenAI-compatible model-serving network."
+    >
+    <link rel="icon" href="assets/logo.ico">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Xeno home">
+        <img src="assets/logo.png" alt="" width="42" height="42">
+        <span>Xeno</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav>
+        <a href="#does">What It Does</a>
+        <a href="#works">How It Works</a>
+        <a href="#deploy">Deploy</a>
+        <a href="#developers">Developers</a>
+        <a href="#start">Get Started</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-backdrop" src="assets/ss1.png" alt="">
+        <div class="hero-overlay"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">OpenAI-compatible AI control plane</p>
+            <h1 id="hero-title">Xeno</h1>
+            <p class="hero-lede">
+              Turn every trusted laptop, workstation, server, and accelerator host into one shared model-serving network.
+            </p>
+            <p class="hero-body">
+              Xeno gives teams a single governed endpoint for distributed inference, with routing policy, client identity,
+              telemetry, dashboards, and SDKs built around the hardware and models they already own.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="https://github.com/jchristn/xeno">View on GitHub</a>
+              <a class="button secondary" href="#start">Start with Docker</a>
+            </div>
+          </div>
+
+          <div class="hero-proof" aria-label="Xeno platform highlights">
+            <div>
+              <strong>One endpoint</strong>
+              <span>Chat, completions, embeddings, and model listing through OpenAI-compatible routes.</span>
+            </div>
+            <div>
+              <strong>Fleet aware</strong>
+              <span>Clients advertise hardware, providers, models, health, and telemetry.</span>
+            </div>
+            <div>
+              <strong>Operator ready</strong>
+              <span>Dashboards, request history, routing policies, tenants, credentials, and analytics.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logo-strip" aria-label="Supported provider and runtime patterns">
+        <span>Ollama</span>
+        <span>vLLM</span>
+        <span>OpenAI</span>
+        <span>Gemini</span>
+        <span>OpenAI-compatible</span>
+        <span>SQLite</span>
+        <span>PostgreSQL</span>
+      </section>
+
+      <section class="section split" id="does">
+        <div class="section-copy">
+          <p class="eyebrow">What it does</p>
+          <h2>Make AI capacity addressable wherever it already exists.</h2>
+          <p>
+            Xeno separates the public API surface from the machines doing the work. Applications call the Xeno server.
+            Connected clients run beside local runtimes and accelerators, advertise what they can serve, execute routed
+            requests, and report enough telemetry for operators to trust the fleet.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="card-mark"></span>
+            <h3>OpenAI-compatible API</h3>
+            <p>Expose model listing, chat completions, completions, and embeddings behind one stable endpoint.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-mark"></span>
+            <h3>Authenticated clients</h3>
+            <p>Tenant-bound clients connect over WebSockets and advertise machine inventory, providers, and models.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-mark"></span>
+            <h3>Policy-based routing</h3>
+            <p>Use model and client match rules with RoundRobin, Random, FirstAvailable, LeastRecentlyUsed, or Adaptive selection.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-mark"></span>
+            <h3>Operational visibility</h3>
+            <p>Inspect request history, headers, bodies, stream counters, routing decisions, host metrics, provider telemetry, and analytics.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section visual-section" id="works">
+        <div class="center-copy">
+          <p class="eyebrow">How it works</p>
+          <h2>A control plane in the middle. Workload runners at the edge.</h2>
+          <p>
+            The server owns identity, tenancy, routing policy, request history, telemetry, and the API. The client owns
+            local execution against Ollama, vLLM, OpenAI, Gemini, or another OpenAI-compatible provider.
+          </p>
+        </div>
+        <figure class="diagram-frame">
+          <img src="assets/diagram.png" alt="Xeno architecture showing OpenAI-compatible clients, the Xeno server control plane, and Xeno workload runner clients.">
+        </figure>
+        <div class="steps">
+          <article>
+            <span>01</span>
+            <h3>Connect nodes</h3>
+            <p>Install the lightweight <code>xeno</code> client on machines with reachable model runtimes or accelerator capacity.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Advertise inventory</h3>
+            <p>Each client reports provider endpoints, supported models, host health, GPU details, and provider telemetry.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Route requests</h3>
+            <p>Applications call Xeno once. The server authenticates, checks permissions, applies policy, and selects an eligible client.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Observe outcomes</h3>
+            <p>Operators inspect routing traces, selected clients, timing, token metadata, failures, and fleet utilization.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="deploy">
+        <div class="center-copy">
+          <p class="eyebrow">Deployment options</p>
+          <h2>Run it where your control boundary lives.</h2>
+          <p>
+            Xeno is designed for public-cloud coordination, private accelerator estates, and hybrid fleets that combine local
+            model runtimes with hosted APIs.
+          </p>
+        </div>
+        <div class="deployment-grid">
+          <article class="deployment-card">
+            <img src="assets/server.png" alt="">
+            <h3>Cloud control plane</h3>
+            <p>Run a small Xeno server in cloud infrastructure, issue tenant-scoped client credentials, and connect trusted contributor machines from anywhere.</p>
+          </article>
+          <article class="deployment-card">
+            <img src="assets/workstations.png" alt="">
+            <h3>On-premises federation</h3>
+            <p>Deploy internally, install clients on GPU hosts, and give agentic applications one governed API endpoint for private capacity.</p>
+          </article>
+          <article class="deployment-card">
+            <img src="assets/laptop.png" alt="">
+            <h3>Hybrid and burst</h3>
+            <p>Blend local Ollama or vLLM with OpenAI, Gemini, and compatible endpoints while keeping application code stable.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dashboard-section" id="dashboard">
+        <div class="dashboard-copy">
+          <p class="eyebrow">Dashboards</p>
+          <h2>See the fleet, not just the request.</h2>
+          <p>
+            Xeno ships with server and local client dashboards for live capacity, connected clients, advertised models,
+            telemetry, routing policy, API exploration, request history, and tenant administration.
+          </p>
+        </div>
+        <div class="screenshot-shell">
+          <div class="screenshot-toolbar" role="tablist" aria-label="Dashboard screenshots">
+            <button class="screenshot-tab active" type="button" role="tab" aria-selected="true" data-shot="assets/ss1.png" data-caption="Home dashboard with live request volume, success rate, connected clients, advertised models, and request activity.">Home</button>
+            <button class="screenshot-tab" type="button" role="tab" aria-selected="false" data-shot="assets/ss2.png" data-caption="Request history and inspection views for routed model traffic.">Requests</button>
+            <button class="screenshot-tab" type="button" role="tab" aria-selected="false" data-shot="assets/ss3.png" data-caption="Advertised model inventory across connected and registered clients.">Models</button>
+            <button class="screenshot-tab" type="button" role="tab" aria-selected="false" data-shot="assets/ss4.png" data-caption="Routing, telemetry, analytics, or administration workflow in the Xeno dashboard.">Control</button>
+            <button class="screenshot-tab" type="button" role="tab" aria-selected="false" data-shot="assets/ss5.png" data-caption="API exploration and operational detail views for developers and operators.">API</button>
+          </div>
+          <figure class="screenshot-frame">
+            <img src="assets/ss1.png" alt="Xeno dashboard screenshot" data-shot-image>
+            <figcaption data-shot-caption>Home dashboard with live request volume, success rate, connected clients, advertised models, and request activity.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section developer-section" id="developers">
+        <div class="center-copy">
+          <p class="eyebrow">Developer experience</p>
+          <h2>Keep the app integration boring. Make the fleet powerful.</h2>
+          <p>
+            Applications use Xeno like a normal OpenAI-compatible endpoint. Operators can change routing, providers, and
+            model placement without forcing application teams to chase machine-specific details.
+          </p>
+        </div>
+        <div class="code-grid">
+          <article class="code-card">
+            <div class="code-head">
+              <h3>OpenAI-compatible request</h3>
+              <button type="button" class="copy-button" data-copy="#curl-example">Copy</button>
+            </div>
+            <pre><code id="curl-example">curl http://localhost:9000/v1/chat/completions \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -H "x-tenant-guid: ten_default" \
+  -d '{
+    "model": "llama3.2:latest",
+    "messages": [
+      { "role": "user", "content": "Explain an inverted index." }
+    ],
+    "stream": true
+  }'</code></pre>
+          </article>
+          <article class="code-card">
+            <div class="code-head">
+              <h3>JavaScript SDK</h3>
+              <button type="button" class="copy-button" data-copy="#js-example">Copy</button>
+            </div>
+            <pre><code id="js-example">import { XenoClient } from '@xeno-control-plane/sdk';
+
+const client = new XenoClient({
+  baseUrl: 'http://localhost:9000',
+  bearerToken: token,
+  tenantId: 'ten_default'
+});
+
+const models = await client.listOpenAiModels();
+const policies = await client.listRoutingPolicies();</code></pre>
+          </article>
+          <article class="code-card">
+            <div class="code-head">
+              <h3>Python SDK</h3>
+              <button type="button" class="copy-button" data-copy="#python-example">Copy</button>
+            </div>
+            <pre><code id="python-example">from xeno_client import XenoClient
+
+client = XenoClient(
+    "http://localhost:9000",
+    bearer_token=token,
+    tenant_id="ten_default",
+)
+
+models = client.list_openai_models()
+policies = client.list_routing_policies()</code></pre>
+          </article>
+          <article class="code-card">
+            <div class="code-head">
+              <h3>C# SDK</h3>
+              <button type="button" class="copy-button" data-copy="#csharp-example">Copy</button>
+            </div>
+            <pre><code id="csharp-example">using Xeno.Sdk;
+
+using XenoClient client = new XenoClient(
+    "http://localhost:9000",
+    bearerToken: token,
+    tenantId: "ten_default");
+
+XenoApiResponse models =
+    await client.ListOpenAiModelsAsync();
+XenoApiResponse policies =
+    await client.ListRoutingPoliciesAsync();</code></pre>
+          </article>
+        </div>
+      </section>
+
+      <section class="section use-case-section" id="use-cases">
+        <div class="section-copy">
+          <p class="eyebrow">Use cases</p>
+          <h2>From spare GPUs to governed accelerator fleets.</h2>
+          <p>
+            Xeno is for teams that want placement, policy, and observability around model execution without rewriting every application.
+          </p>
+        </div>
+        <div class="use-case-grid">
+          <article>
+            <h3>Community GPU networks</h3>
+            <p>Let trusted contributors attach home labs, offices, classrooms, and partner machines to a shared endpoint.</p>
+          </article>
+          <article>
+            <h3>Enterprise AI platforms</h3>
+            <p>Give internal teams a single inference API backed by managed GPU hosts, role-based access, and audit-friendly request history.</p>
+          </article>
+          <article>
+            <h3>Research clusters</h3>
+            <p>Expose heterogeneous workstations as one pool while keeping model inventory and machine details visible to operators.</p>
+          </article>
+          <article>
+            <h3>Private and edge inference</h3>
+            <p>Keep execution near sensitive data or branch users while retaining central visibility and policy control.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section feature-band" aria-labelledby="feature-band-title">
+        <div class="center-copy">
+          <p class="eyebrow">Included surfaces</p>
+          <h2 id="feature-band-title">Everything needed to operate the alpha end to end.</h2>
+        </div>
+        <div class="pill-grid">
+          <span>Multitenant server</span>
+          <span>REST API</span>
+          <span>OpenAPI and Swagger</span>
+          <span>Postman collection</span>
+          <span>C# SDK</span>
+          <span>JavaScript SDK</span>
+          <span>Python SDK</span>
+          <span>Client WebSocket protocol</span>
+          <span>Request history</span>
+          <span>Server telemetry</span>
+          <span>Local client dashboard</span>
+          <span>Docker deployment</span>
+        </div>
+      </section>
+
+      <section class="section start-section" id="start">
+        <div class="start-copy">
+          <p class="eyebrow">Getting started</p>
+          <h2>Clone it. Run Docker. Connect capacity.</h2>
+          <p>
+            Xeno is MIT licensed and available on GitHub. The default Docker deployment starts PostgreSQL, initializes the
+            system, and brings up the server and dashboard for local evaluation.
+          </p>
+          <div class="start-links">
+            <a class="button primary" href="https://github.com/jchristn/xeno">GitHub repository</a>
+            <a class="button secondary" href="https://github.com/jchristn/xeno/tree/main/docker">Docker deployment</a>
+          </div>
+        </div>
+        <article class="terminal-card">
+          <div class="code-head">
+            <h3>Docker quick start</h3>
+            <button type="button" class="copy-button" data-copy="#docker-example">Copy</button>
+          </div>
+          <pre><code id="docker-example">git clone https://github.com/jchristn/xeno.git
+cd xeno/docker
+docker compose pull
+docker compose up -d
+
+# Dashboard: http://localhost:9100
+# API:       http://localhost:9000
+# Swagger:   http://localhost:9000/swagger</code></pre>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="footer-brand" href="#top">
+          <img src="assets/logo.png" alt="" width="34" height="34">
+          <span>Xeno</span>
+        </a>
+        <p>AI accelerator capacity, coordinated as a fleet.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/jchristn/xeno">GitHub</a>
+        <a href="https://github.com/jchristn/xeno/blob/main/LICENSE">MIT License</a>
+        <a href="#developers">SDKs</a>
+        <a href="#dashboard">Dashboard</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
