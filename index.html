@@ -267,16 +267,17 @@ policies = client.list_routing_policies()</code></pre>
               <h3>C# SDK</h3>
               <button type="button" class="copy-button" data-copy="#csharp-example">Copy</button>
             </div>
-            <pre><code id="csharp-example">using Xeno.Sdk;
+            <pre><code id="csharp-example">using System.Collections.Generic;
+using Xeno.Sdk;
 
 using XenoClient client = new XenoClient(
     "http://localhost:9000",
     bearerToken: token,
     tenantId: "ten_default");
 
-XenoApiResponse models =
+OpenAiModelList models =
     await client.ListOpenAiModelsAsync();
-XenoApiResponse policies =
+List&lt;RoutingPolicy&gt; policies =
     await client.ListRoutingPoliciesAsync();</code></pre>
           </article>
         </div>
