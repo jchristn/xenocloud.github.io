@@ -6,7 +6,7 @@
     <title>Xeno | AI Control Plane for Distributed Model Serving</title>
     <meta
       name="description"
-      content="Xeno turns laptops, workstations, servers, and accelerator hosts into one governed OpenAI-compatible model-serving network."
+      content="Xeno gives platform teams one governed OpenAI-compatible endpoint for private, hybrid, and community inference fleets."
     >
     <link rel="icon" href="assets/logo.ico">
     <link rel="apple-touch-icon" href="assets/logo.png">
@@ -39,14 +39,14 @@
         <div class="hero-overlay"></div>
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">OpenAI-compatible AI control plane</p>
+            <p class="eyebrow">For private, hybrid, and community inference fleets</p>
             <h1 id="hero-title">Xeno</h1>
             <p class="hero-lede">
-              Turn every trusted laptop, workstation, server, and accelerator host into one shared model-serving network.
+              One governed endpoint for every model your team can run.
             </p>
             <p class="hero-body">
-              Xeno gives teams a single governed endpoint for distributed inference, with routing policy, client identity,
-              telemetry, dashboards, and SDKs built around the hardware and models they already own.
+              Xeno turns trusted laptops, workstations, servers, and accelerator hosts into an OpenAI-compatible inference
+              fleet with routing policy, tenant identity, live telemetry, dashboards, and SDKs.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="https://github.com/jchristn/xeno">View on GitHub</a>
@@ -57,15 +57,15 @@
           <div class="hero-proof" aria-label="Xeno platform highlights">
             <div>
               <strong>One endpoint</strong>
-              <span>Chat, completions, embeddings, and model listing through OpenAI-compatible routes.</span>
+              <span>Applications keep one OpenAI-compatible API for chat, completions, embeddings, and model discovery.</span>
             </div>
             <div>
-              <strong>Fleet aware</strong>
-              <span>Clients advertise hardware, providers, models, health, and telemetry.</span>
+              <strong>Fleet routing</strong>
+              <span>Policy selects eligible clients from advertised hardware, providers, models, health, and load.</span>
             </div>
             <div>
-              <strong>Operator ready</strong>
-              <span>Dashboards, request history, routing policies, tenants, credentials, and analytics.</span>
+              <strong>Governed access</strong>
+              <span>Tenants, credentials, request history, dashboards, analytics, and telemetry stay in the control plane.</span>
             </div>
           </div>
         </div>
@@ -84,28 +84,28 @@
       <section class="section split" id="does">
         <div class="section-copy">
           <p class="eyebrow">What it does</p>
-          <h2>Make AI capacity addressable wherever it already exists.</h2>
+          <h2>Make distributed AI capacity usable as one governed service.</h2>
           <p>
-            Xeno separates the public API surface from the machines doing the work. Applications call the Xeno server.
-            Connected clients run beside local runtimes and accelerators, advertise what they can serve, execute routed
-            requests, and report enough telemetry for operators to trust the fleet.
+            Applications call Xeno once. The control plane authenticates the request, applies policy, routes to an eligible
+            client, and records what happened. Connected clients run beside local runtimes and accelerators, advertise what
+            they can serve, execute routed requests, and report the telemetry operators need to trust the fleet.
           </p>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
             <span class="card-mark"></span>
             <h3>OpenAI-compatible API</h3>
-            <p>Expose model listing, chat completions, completions, and embeddings behind one stable endpoint.</p>
+            <p>Keep application code stable with model listing, chat completions, completions, and embeddings behind one endpoint.</p>
           </article>
           <article class="feature-card">
             <span class="card-mark"></span>
             <h3>Authenticated clients</h3>
-            <p>Tenant-bound clients connect over WebSockets and advertise machine inventory, providers, and models.</p>
+            <p>Trusted clients connect over WebSockets and publish machine inventory, provider health, supported models, and telemetry.</p>
           </article>
           <article class="feature-card">
             <span class="card-mark"></span>
             <h3>Policy-based routing</h3>
-            <p>Use model and client match rules with RoundRobin, Random, FirstAvailable, LeastRecentlyUsed, or Adaptive selection.</p>
+            <p>Match by model and client rules, then select capacity with RoundRobin, Random, FirstAvailable, LeastRecentlyUsed, or Adaptive routing.</p>
           </article>
           <article class="feature-card">
             <span class="card-mark"></span>
@@ -118,10 +118,10 @@
       <section class="section visual-section" id="works">
         <div class="center-copy">
           <p class="eyebrow">How it works</p>
-          <h2>A control plane in the middle. Workload runners at the edge.</h2>
+          <h2>Central policy. Edge execution. Full request visibility.</h2>
           <p>
-            The server owns identity, tenancy, routing policy, request history, telemetry, and the API. The client owns
-            local execution against Ollama, vLLM, OpenAI, Gemini, or another OpenAI-compatible provider.
+            The server owns identity, tenancy, routing policy, request history, telemetry, and the API. Each client owns
+            execution against Ollama, vLLM, OpenAI, Gemini, or another OpenAI-compatible provider close to the available capacity.
           </p>
         </div>
         <figure class="diagram-frame">
@@ -154,22 +154,22 @@
       <section class="section" id="deploy">
         <div class="center-copy">
           <p class="eyebrow">Deployment options</p>
-          <h2>Run it where your control boundary lives.</h2>
+          <h2>Run the control plane where trust and policy belong.</h2>
           <p>
-            Xeno is designed for public-cloud coordination, private accelerator estates, and hybrid fleets that combine local
-            model runtimes with hosted APIs.
+            Xeno is designed for platform teams coordinating public-cloud capacity, private accelerator estates, edge machines,
+            and hosted model APIs without giving every application a new integration path.
           </p>
         </div>
         <div class="deployment-grid">
           <article class="deployment-card">
             <img src="assets/server.png" alt="">
             <h3>Cloud control plane</h3>
-            <p>Run a small Xeno server in cloud infrastructure, issue tenant-scoped client credentials, and connect trusted contributor machines from anywhere.</p>
+            <p>Run a small Xeno server in cloud infrastructure, issue scoped credentials, and connect trusted contributor machines from anywhere.</p>
           </article>
           <article class="deployment-card">
             <img src="assets/workstations.png" alt="">
             <h3>On-premises federation</h3>
-            <p>Deploy internally, install clients on GPU hosts, and give agentic applications one governed API endpoint for private capacity.</p>
+            <p>Deploy internally, install clients on GPU hosts, and give AI applications one governed endpoint for private capacity.</p>
           </article>
           <article class="deployment-card">
             <img src="assets/laptop.png" alt="">
@@ -182,10 +182,10 @@
       <section class="section dashboard-section" id="dashboard">
         <div class="dashboard-copy">
           <p class="eyebrow">Dashboards</p>
-          <h2>See the fleet, not just the request.</h2>
+          <h2>See the fleet behind every request.</h2>
           <p>
-            Xeno ships with server and local client dashboards for live capacity, connected clients, advertised models,
-            telemetry, routing policy, API exploration, request history, and tenant administration.
+            Xeno ships with server and local client dashboards for connected clients, advertised models, live capacity,
+            provider telemetry, routing policy, API exploration, request history, and tenant administration.
           </p>
         </div>
         <div class="screenshot-shell">
@@ -206,10 +206,10 @@
       <section class="section developer-section" id="developers">
         <div class="center-copy">
           <p class="eyebrow">Developer experience</p>
-          <h2>Keep the app integration boring. Make the fleet powerful.</h2>
+          <h2>Keep the app integration simple. Move complexity into the control plane.</h2>
           <p>
-            Applications use Xeno like a normal OpenAI-compatible endpoint. Operators can change routing, providers, and
-            model placement without forcing application teams to chase machine-specific details.
+            Developers use Xeno like a normal OpenAI-compatible endpoint. Operators can change routing, providers, credentials,
+            and model placement without forcing application teams to chase machine-specific details.
           </p>
         </div>
         <div class="code-grid">
@@ -286,15 +286,16 @@ List&lt;RoutingPolicy&gt; policies =
       <section class="section use-case-section" id="use-cases">
         <div class="section-copy">
           <p class="eyebrow">Use cases</p>
-          <h2>From spare GPUs to governed accelerator fleets.</h2>
+          <h2>For teams turning scattered capacity into a reliable inference layer.</h2>
           <p>
-            Xeno is for teams that want placement, policy, and observability around model execution without rewriting every application.
+            Xeno is for platform teams that need placement, policy, tenancy, and observability around model execution without
+            rewriting every application.
           </p>
         </div>
         <div class="use-case-grid">
           <article>
             <h3>Community GPU networks</h3>
-            <p>Let trusted contributors attach home labs, offices, classrooms, and partner machines to a shared endpoint.</p>
+            <p>Let trusted contributors attach home labs, offices, classrooms, and partner machines to one governed endpoint.</p>
           </article>
           <article>
             <h3>Enterprise AI platforms</h3>
@@ -314,7 +315,7 @@ List&lt;RoutingPolicy&gt; policies =
       <section class="section feature-band" aria-labelledby="feature-band-title">
         <div class="center-copy">
           <p class="eyebrow">Included surfaces</p>
-          <h2 id="feature-band-title">Everything needed to operate the alpha end to end.</h2>
+          <h2 id="feature-band-title">The control-plane pieces are included.</h2>
         </div>
         <div class="pill-grid">
           <span>Multitenant server</span>
@@ -368,7 +369,7 @@ docker compose up -d
           <img src="assets/logo.png" alt="" width="34" height="34">
           <span>Xeno</span>
         </a>
-        <p>AI accelerator capacity, coordinated as a fleet.</p>
+        <p>One governed endpoint for distributed inference capacity.</p>
       </div>
       <div class="footer-links">
         <a href="https://github.com/jchristn/xeno">GitHub</a>
