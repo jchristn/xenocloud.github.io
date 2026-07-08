@@ -118,10 +118,10 @@
       <section class="section visual-section" id="works">
         <div class="center-copy">
           <p class="eyebrow">How it works</p>
-          <h2>Central policy. Edge execution. Full request visibility.</h2>
+          <h2>Central policy. Distributed execution. Full visibility and control.</h2>
           <p>
-            The server owns identity, tenancy, routing policy, request history, telemetry, and the API. Each client owns
-            execution against Ollama, vLLM, OpenAI, Gemini, or another OpenAI-compatible provider close to the available capacity.
+            Xeno manages identity, tenancy, routing policy, visibility, and API endpoints. Your clients execute using your
+            Ollama, vLLM, Gemini, or OpenAI-compatible infrastructure.
           </p>
         </div>
         <figure class="diagram-frame">
@@ -141,7 +141,7 @@
           <article>
             <span>03</span>
             <h3>Route requests</h3>
-            <p>Applications call Xeno once. The server authenticates, checks permissions, applies policy, and selects an eligible client.</p>
+            <p>Applications use OpenAI APIs with Xeno, which then authenticates, checks permissions, applies policy, and routes according to your policy.</p>
           </article>
           <article>
             <span>04</span>
@@ -156,20 +156,20 @@
           <p class="eyebrow">Deployment options</p>
           <h2>Run the control plane where trust and policy belong.</h2>
           <p>
-            Xeno is designed for platform teams coordinating public-cloud capacity, private accelerator estates, edge machines,
-            and hosted model APIs without giving every application a new integration path.
+            Xeno coordinates capacity across your entire fleet, whether it's public cloud, private cloud, servers, edge devices,
+            or workstations.
           </p>
         </div>
         <div class="deployment-grid">
           <article class="deployment-card">
             <img src="assets/server.png" alt="">
             <h3>Cloud control plane</h3>
-            <p>Run a small Xeno server in cloud infrastructure, issue scoped credentials, and connect trusted contributor machines from anywhere.</p>
+            <p>Leverage Xeno SaaS, your own cloud or private server, and securely manage access, credentials, and tenancy for your fleet.</p>
           </article>
           <article class="deployment-card">
             <img src="assets/workstations.png" alt="">
             <h3>On-premises federation</h3>
-            <p>Deploy internally, install clients on GPU hosts, and give AI applications one governed endpoint for private capacity.</p>
+            <p>Deploy internally on desktops, laptops, servers, AI PCs, and give AI applications one governed endpoint for private capacity.</p>
           </article>
           <article class="deployment-card">
             <img src="assets/laptop.png" alt="">
@@ -182,10 +182,10 @@
       <section class="section dashboard-section" id="dashboard">
         <div class="dashboard-copy">
           <p class="eyebrow">Dashboards</p>
-          <h2>See the fleet behind every request.</h2>
+          <h2>See the details behind every request.</h2>
           <p>
-            Xeno ships with server and local client dashboards for connected clients, advertised models, live capacity,
-            provider telemetry, routing policy, API exploration, request history, and tenant administration.
+            Full visibility via API or dashboards for both client and server, exhaustive telemetry and capacity management,
+            and model inventory management.
           </p>
         </div>
         <div class="screenshot-shell">
@@ -206,7 +206,7 @@
       <section class="section developer-section" id="developers">
         <div class="center-copy">
           <p class="eyebrow">Developer experience</p>
-          <h2>Keep the app integration simple. Move complexity into the control plane.</h2>
+          <h2>Simple application integration and OpenAI API compatibility</h2>
           <p>
             Developers use Xeno like a normal OpenAI-compatible endpoint. Operators can change routing, providers, credentials,
             and model placement without forcing application teams to chase machine-specific details.
